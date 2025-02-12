@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.netifi.flatbuffers.plugin
+
+package io.sophimp.flatbuffers.plugin
 
 import groovy.transform.CompileStatic
-import io.netifi.flatbuffers.plugin.tasks.FlatBuffers
+import io.sophimp.flatbuffers.plugin.tasks.FlatBuffers
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.Configuration

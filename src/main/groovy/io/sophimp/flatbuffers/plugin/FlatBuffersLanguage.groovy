@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.netifi.flatbuffers.plugin
 
+package io.sophimp.flatbuffers.plugin
 /**
  * Enumeration of all languages supported by the FlatBuffers compiler.
  */

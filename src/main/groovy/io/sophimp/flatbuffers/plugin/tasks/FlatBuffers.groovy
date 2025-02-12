@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.netifi.flatbuffers.plugin.tasks
+package io.sophimp.flatbuffers.plugin.tasks
 
 import groovy.io.FileType
 import groovy.transform.CompileStatic
-import io.netifi.flatbuffers.plugin.FlatBuffersLanguage
-import io.netifi.flatbuffers.plugin.FlatBuffersPlugin
-import io.netifi.flatbuffers.plugin.FlatBuffersPluginExtension
+import io.sophimp.flatbuffers.plugin.FlatBuffersLanguage
+import io.sophimp.flatbuffers.plugin.FlatBuffersPlugin
+import io.sophimp.flatbuffers.plugin.FlatBuffersPluginExtension
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.*
 import org.gradle.execution.commandline.TaskConfigurationException

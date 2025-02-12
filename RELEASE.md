@@ -3,7 +3,7 @@ Follow the steps below to create a new release of the gradle-flatbuffers-plugin.
 
 ### 1. Set Release Version
 
-   Update the release version of the plugin in the [build.gradle](build.gradle) file.
+   Update the release version of the plugin in the [build.gradle](build.gradle.kts) file.
     
 ### 2. Commit Release Version Change
 

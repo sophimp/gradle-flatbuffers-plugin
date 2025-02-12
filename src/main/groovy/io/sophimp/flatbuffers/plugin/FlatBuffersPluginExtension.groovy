@@ -13,7 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.netifi.flatbuffers.plugin
+
+package io.sophimp.flatbuffers.plugin
 
 import groovy.transform.CompileStatic
 
@@ -24,5 +25,5 @@ class FlatBuffersPluginExtension {
 
     String language
 
-    String flatBuffersVersion = '1.10.0'
+    String flatBuffersVersion = '25.2.10'
 }

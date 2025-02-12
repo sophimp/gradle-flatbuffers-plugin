@@ -19,7 +19,7 @@ The plugin defines the following extension properties in the `flatbuffers` closu
 |--------------|--------|---------------|----------|----------------------------------------------------|
 | flatcPath    | String | flatc         | False    | The path to the flatc compiler.                    |
 | language     | String | null          | False    | The language to use when compiling the FlatBuffers.|
-| flatBuffersVersion | String | 1.10.0        | False    | The version of the java maven binaries to include. |
+| flatBuffersVersion | String | 25.2.10       | False    | The version of the java maven binaries to include. |
 
 *Note:* Please see the [Supported Languages](#supported-languages) section for valid `language` values.
 
@@ -91,7 +91,7 @@ This example generates Java FlatBuffers from the schema files in the default `sr
 For bugs, questions, and discussions please use the [Github Issues](https://github.com/netifi/gradle-flatbuffers-plugin/issues).
 
 ## License
-Copyright 2020 Original Authors
+Copyright 2025 Original Authors
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
