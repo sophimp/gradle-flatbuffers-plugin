@@ -1,8 +1,8 @@
 import java.util.Properties
 
 plugins {
+    id("com.gradle.plugin-publish") version "1.3.1"
     `kotlin-dsl`
-    `maven-publish`
 }
 
 dependencies {
@@ -44,27 +44,12 @@ gradlePlugin {
     }
 }
 
+
 val localProperties = Properties()
 file("local.properties").inputStream().use { fis ->
     localProperties.load(fis)
 }
-publishing {
-//    publications {
-//        create<MavenPublication>("gradlePlugin") {
-//            from(components["gradlePlugin"])
-//        }
-//    }
-    repositories {
-        maven {
-            url = uri("https://plugins.gradle.org/m2/")
-            credentials {
-                project.properties
-                username = localProperties.getProperty("GRADLE_PLUGIN_PUBLISH_KEY")
-                password = localProperties.getProperty("GRADLE_PLUGIN_PUBLISH_SECRET")
-            }
-        }
-    }
-}
+
 //license {
 //    header file('codequality/HEADER')
 //    strictCheck true
