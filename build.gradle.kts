@@ -5,6 +5,20 @@ plugins {
     `kotlin-dsl`
 }
 
+// 读取 local.properties 文件
+val localProperties = Properties().apply {
+    val localPropertiesFile = File("local.properties")
+    if (localPropertiesFile.exists()) {
+        load(localPropertiesFile.inputStream())
+    }
+}
+// 将 local.properties 中的配置设置为项目属性
+localProperties.forEach { key, value ->
+    if (key is String && value is String) {
+        project.extensions.extraProperties.set(key, value)
+    }
+}
+
 dependencies {
     implementation(libs.android.gradlePlugin)
     implementation(libs.kotlin.gradlePlugin)
@@ -34,12 +48,6 @@ gradlePlugin {
             tags.set(listOf("serialization", "build", "codegen"))
         }
     }
-}
-
-
-val localProperties = Properties()
-file("local.properties").inputStream().use { fis ->
-    localProperties.load(fis)
 }
 
 //license {
