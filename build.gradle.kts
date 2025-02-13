@@ -44,7 +44,7 @@ gradlePlugin {
             id = "io.sophimp.flatbuffers"
             implementationClass = "io.sophimp.flatbuffers.plugin.FlatBuffersPlugin"
             displayName = "gralde flatBuffer plugin"
-            description = "wrap google flatBuffers in gradle plugin"
+            description = "A Gradle plugin that wraps Google FlatBuffers and can generate code from Google FlatBuffers schemas."
             tags.set(listOf("serialization", "build", "codegen"))
         }
     }
