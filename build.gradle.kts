@@ -22,14 +22,6 @@ kotlin {
     jvmToolchain(17)
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs("src/main/groovy")
-        }
-    }
-}
-
 gradlePlugin {
     website.set("https://github.com/sophimp/gradle-flatbuffers-plugin")
     vcsUrl.set("https://github.com/sophimp/gradle-flatbuffers-plugin")
