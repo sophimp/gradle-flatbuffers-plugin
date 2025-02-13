@@ -29,12 +29,6 @@ open class FlatBuffers : DefaultTask() {
     lateinit var outputDir: File
 
     @get:Input
-    var language: String? = null
-        set(value) {
-            field = value?.lowercase(Locale.getDefault())
-        }
-
-    @get:Input
     @get:Optional
     var extraArgs: String? = null
 
@@ -55,7 +49,7 @@ open class FlatBuffers : DefaultTask() {
                     }
                     args(schema.absolutePath)
                     workingDir(project.projectDir)
-                    logger.debug("Running command: '${commandLine.joinToString(" ")}'")
+                    logger.error("Running command: '${commandLine.joinToString(" ")}'")
                 }.assertNormalExitValue()
             } catch (e: ExecException) {
                 throw TaskExecutionException(this, e)
@@ -73,7 +67,7 @@ open class FlatBuffers : DefaultTask() {
     }
 
     private fun getFlatcPath(): String {
-        return project.extensions.getByType(FlatBuffersPluginExtension::class.java).flatcPath
+        return project.extensions.getByType(FlatBuffersPluginExtension::class.java).flatcPath ?: "flatc"
     }
 
     private fun getSchemas(): List<File> {
@@ -91,7 +85,7 @@ open class FlatBuffers : DefaultTask() {
     }
 
     private fun getEffectiveLanguage(): String {
-        val lang = language ?: project.extensions.getByType(FlatBuffersPluginExtension::class.java).language
+        val lang = project.extensions.getByType(FlatBuffersPluginExtension::class.java).language
         ?: throw GradleException("No language specified for FlatBuffers task")
 
         validateLanguage(lang)

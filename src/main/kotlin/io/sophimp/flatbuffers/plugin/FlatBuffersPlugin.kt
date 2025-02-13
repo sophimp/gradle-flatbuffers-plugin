@@ -3,6 +3,7 @@ package io.sophimp.flatbuffers.plugin
 import io.sophimp.flatbuffers.plugin.tasks.FlatBuffers
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.logging.Logging
 import org.gradle.api.plugins.BasePlugin
 import org.gradle.api.plugins.JavaPlugin.IMPLEMENTATION_CONFIGURATION_NAME
 import org.gradle.api.plugins.JavaPluginExtension
@@ -20,6 +21,7 @@ class FlatBuffersPlugin : Plugin<Project> {
 
     private lateinit var extension: FlatBuffersPluginExtension
     private lateinit var project: Project
+    private val logger = Logging.getLogger(FlatBuffersPlugin::class.java)
 
     override fun apply(project: Project) {
         this.project = project
@@ -34,6 +36,7 @@ class FlatBuffersPlugin : Plugin<Project> {
         project.pluginManager.apply(BasePlugin::class.java)
 
         project.afterEvaluate {
+//            logger.error("读取flatBuffers: language: ${extension.language} flatcPath: ${extension.flatcPath}")
             project.tasks.withType(FlatBuffers::class.java).forEach { task ->
                 applySourceSets(task)
                 reconfigurePlugins(task)
@@ -65,7 +68,7 @@ class FlatBuffersPlugin : Plugin<Project> {
             val javaPlugin = project.extensions.getByType(JavaPluginExtension::class.java)
             val sourceSets = javaPlugin.sourceSets
             sourceSets.getByName(SourceSet.MAIN_SOURCE_SET_NAME).java {
-                setSrcDirs(listOf(task.inputDir, task.outputDir))
+                srcDirs(listOf(task.inputDir, task.outputDir))
             }
         }
     }
@@ -93,7 +96,7 @@ class FlatBuffersPlugin : Plugin<Project> {
             project.configurations.getByName(IMPLEMENTATION_CONFIGURATION_NAME) {
             }
             project.configurations.getByName(IMPLEMENTATION_CONFIGURATION_NAME) {
-                val flatBufferVersion = extension.flatBuffersVersion
+                val flatBufferVersion = extension.flatBuffersVersion ?: "25.2.10"
                 dependencies.add(
                     project.dependencies.create("com.google.flatbuffers:flatbuffers-java:$flatBufferVersion")
                 )
