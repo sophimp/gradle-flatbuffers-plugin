@@ -24,7 +24,7 @@ dependencies {
     implementation(libs.kotlin.gradlePlugin)
 }
 
-group = "io.sophimp"
+group = "io.github.sophimp"
 version = "1.0.0"
 
 java {
@@ -41,7 +41,7 @@ gradlePlugin {
     vcsUrl.set("https://github.com/sophimp/gradle-flatbuffers-plugin")
     plugins {
         create("flatBuffersPlugin") {
-            id = "io.sophimp.flatbuffers"
+            id = "io.github.sophimp.flatbuffers"
             implementationClass = "io.sophimp.flatbuffers.plugin.FlatBuffersPlugin"
             displayName = "gralde flatBuffer plugin"
             description = "A Gradle plugin that wraps Google FlatBuffers and can generate code from Google FlatBuffers schemas."
